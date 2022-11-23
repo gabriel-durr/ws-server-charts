@@ -11,7 +11,7 @@ var highDeviceData: highDeviceBpm = [];
 function generateBpm(bpmType: string) {
 	switch (bpmType) {
 		case "lowDeviceBpm":
-			const generateValuesLowDevice = betweenValues(61, 69);
+			const generateValuesLowDevice = betweenValues(60, 67);
 
 			if (lowDeviceData.length > 9) {
 				lowDeviceData.splice(0, 1);
@@ -20,10 +20,13 @@ function generateBpm(bpmType: string) {
 				lowDeviceData.push(generateValuesLowDevice);
 			}
 
-			return lowDeviceData;
+			return {
+				historyData: lowDeviceData,
+				uniqueValue: generateValuesLowDevice,
+			};
 
 		case "mediumDeviceBpm":
-			const generateValuesMediumDevice = betweenValues(80, 5);
+			const generateValuesMediumDevice = betweenValues(75, 84);
 
 			if (mediumDeviceData.length > 9) {
 				mediumDeviceData.splice(0, 1);
@@ -32,10 +35,13 @@ function generateBpm(bpmType: string) {
 				mediumDeviceData.push(generateValuesMediumDevice);
 			}
 
-			return mediumDeviceData;
+			return {
+				historyData: mediumDeviceData,
+				uniqueValue: generateValuesMediumDevice,
+			};
 
 		case "highDeviceBpm":
-			const generateValuesHighDevice = betweenValues(112, 120);
+			const generateValuesHighDevice = betweenValues(90, 110);
 
 			if (highDeviceData.length > 9) {
 				highDeviceData.splice(0, 1);
@@ -44,7 +50,10 @@ function generateBpm(bpmType: string) {
 				highDeviceData.push(generateValuesHighDevice);
 			}
 
-			return highDeviceData;
+			return {
+				historyData: highDeviceData,
+				uniqueValue: generateValuesHighDevice,
+			};
 	}
 }
 

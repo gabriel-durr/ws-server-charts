@@ -8,10 +8,12 @@ var lowDeviceData: lowDeviceSpo = [];
 var mediumDeviceData: mediumDeviceSpo = [];
 var highDeviceData: highDeviceSpo = [];
 
+// var Atual Value (variável vai receber apenas valor atual do random number)
+
 function generateSpo(spoType: string) {
 	switch (spoType) {
 		case "lowDeviceSpo":
-			const generateValuesLowDevice = betweenValues(90, 100);
+			const generateValuesLowDevice = betweenValues(98, 99);
 
 			if (lowDeviceData.length > 9) {
 				lowDeviceData.splice(0, 1);
@@ -20,10 +22,13 @@ function generateSpo(spoType: string) {
 				lowDeviceData.push(generateValuesLowDevice);
 			}
 
-			return lowDeviceData;
+			return {
+				historyData: lowDeviceData,
+				uniqueValue: generateValuesLowDevice,
+			};
 
 		case "mediumDeviceSpo":
-			const generateValuesMediumDevice = betweenValues(20, 30);
+			const generateValuesMediumDevice = betweenValues(97, 100);
 
 			if (mediumDeviceData.length > 9) {
 				mediumDeviceData.splice(0, 1);
@@ -32,10 +37,13 @@ function generateSpo(spoType: string) {
 				mediumDeviceData.push(generateValuesMediumDevice);
 			}
 
-			return mediumDeviceData;
+			return {
+				historyData: mediumDeviceData,
+				uniqueValue: generateValuesMediumDevice,
+			};
 
 		case "highDeviceSpo":
-			const generateValuesHighDevice = betweenValues(40, 60);
+			const generateValuesHighDevice = betweenValues(98, 100);
 
 			if (highDeviceData.length > 9) {
 				highDeviceData.splice(0, 1);
@@ -44,7 +52,10 @@ function generateSpo(spoType: string) {
 				highDeviceData.push(generateValuesHighDevice);
 			}
 
-			return highDeviceData;
+			return {
+				historyData: highDeviceData,
+				uniqueValue: generateValuesHighDevice,
+			};
 	}
 }
 
